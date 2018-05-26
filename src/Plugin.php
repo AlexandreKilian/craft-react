@@ -15,10 +15,7 @@ class Plugin extends \craft\base\Plugin
     public function init()
     {
         parent::init();
-        // if(Craft::$app->getRequest()->getIsSiteRequest()){ // TESTS FOR PERMISSIONS
-        //     $request = Craft::$app->getRequest();
-        //     die(var_dump($request->resolve()[1]['variables']));
-        // }
+        
         if (Craft::$app->request->getIsSiteRequest()) {
             
             $env = getenv('REACT_RENDER');
