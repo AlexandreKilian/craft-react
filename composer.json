@@ -13,6 +13,7 @@
         "react\\": "src/"
       }
     },
+    "license": "MIT",
     "extra": {
       "handle": "react",
       "name": "Craft React",
