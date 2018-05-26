@@ -1,0 +1,23 @@
+{
+    "name": "craft-react",
+    "description": "Client and Server-side React rendering for CraftCMS",
+    "version": "1.0.0",
+    "type": "craft-plugin",
+    "keywords": ["react", "reactjs", "isomorphic", "twig", "craft"],
+    "minimum-stability": "dev",
+    "require": {
+      "craftcms/cms": "^3.0",
+      "limenius/react-renderer": "^2.1.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "react\\": "src/"
+      }
+    },
+    "extra": {
+      "handle": "react",
+      "name": "Craft React",
+      "developer": "Alexandre Kilian",
+      "developerUrl": "https://github.com/AlexandreKilian"
+    }
+  }
