@@ -1,5 +1,5 @@
 {
-    "name": "craft-react",
+    "name": "alexk/craft-react",
     "description": "Client and Server-side React rendering for CraftCMS",
     "version": "1.0.0",
     "type": "craft-plugin",
