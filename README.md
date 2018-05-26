@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Craft React
 
 Craft CMS React Renderer lets you implement React.js client and server-side rendering in your Craft CMS projects.
@@ -41,3 +42,7 @@ In your template, add the following TWIG-function where you want your react appl
 
 
 In the props, pass whatever props you want to pass to your root component.
+=======
+# craft-react
+Client and Server-side React rendering for CraftCMS
+>>>>>>> 67d4a5a9234a95e84fe5ad00c2d87f5feb53ec0b
