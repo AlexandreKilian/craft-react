@@ -4,7 +4,6 @@
     "version": "1.0.0",
     "type": "craft-plugin",
     "keywords": ["react", "reactjs", "isomorphic", "twig", "craft"],
-    "minimum-stability": "dev",
     "require": {
       "craftcms/cms": "^3.0",
       "limenius/react-renderer": "^2.1.0"
