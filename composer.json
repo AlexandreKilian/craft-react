@@ -16,7 +16,7 @@
     "license": "MIT",
     "extra": {
       "handle": "react",
-      "name": "Craft React",
+      "name": "React for Craft",
       "developer": "Alexandre Kilian",
       "developerUrl": "https://github.com/AlexandreKilian"
     }
