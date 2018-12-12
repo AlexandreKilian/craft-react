@@ -15,7 +15,7 @@ class SerializerExtension extends \Twig_Extension
         );
     }
 
-    public function serialize(Entry $entry, $group = 'default', $schema = 'entry') {
+    public function serialize(Entry $entry, $schema = 'entry', $group = 'default') {
         $dir = Craft::getAlias('@config/react');
         $path = $dir . "/$schema.php";
         $config = include_once($path);

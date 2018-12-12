@@ -18,7 +18,6 @@ class Plugin extends \craft\base\Plugin
         parent::init();
         
         if (Craft::$app->request->getIsSiteRequest()) {
-            \Doctrine\Common\Annotations\AnnotationReader::addGlobalIgnoredName('mixin');
             $env = getenv('REACT_RENDER');
             $serverBundle = CRAFT_BASE_PATH.DIRECTORY_SEPARATOR.getenv('REACT_SERVER_BUNDLE');
 
