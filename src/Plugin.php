@@ -9,6 +9,7 @@ use Limenius\ReactRenderer\Renderer\PhpExecJsReactRenderer;
 use Limenius\ReactRenderer\Twig\ReactRenderExtension;
 
 use react\context\CraftContextProvider;
+use react\twig\SerializerExtension;
 
 class Plugin extends \craft\base\Plugin
 {
@@ -17,13 +18,15 @@ class Plugin extends \craft\base\Plugin
         parent::init();
         
         if (Craft::$app->request->getIsSiteRequest()) {
-            
+            \Doctrine\Common\Annotations\AnnotationReader::addGlobalIgnoredName('mixin');
             $env = getenv('REACT_RENDER');
             $serverBundle = CRAFT_BASE_PATH.DIRECTORY_SEPARATOR.getenv('REACT_SERVER_BUNDLE');
 
             $contextProvider = new CraftContextProvider(Craft::$app->request);
             $renderer = new PhpExecJsReactRenderer($serverBundle, $env != 'client_side', $contextProvider);
             $ext = new ReactRenderExtension($renderer, $contextProvider, $env);
+            $ext2 = new SerializerExtension();
+            Craft::$app->view->registerTwigExtension($ext2);
             Craft::$app->view->registerTwigExtension($ext);
 
         }
