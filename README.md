@@ -25,12 +25,22 @@ In the Control Panel, go to Settings → Plugins and click the “Install” but
 
 ## Setup
 
-In your `.env` file, add the following entries:
+In the plugin settings `.env` file, add the following entries:
 
-```
-REACT_RENDER="both" // options: "client_side", "server_side" or "both"
+`Environment: "client_side", "server_side" or "both"`
 
-REACT_SERVER_BUNDLE= 'app/server-bundle.js' // the location of your server bundle from your craft CMS root directory
+`Server Bundle: "PATH_TO_SERVER_BUNDLE"`
+
+or override the settings globally in `config/react.php`
+
+
+```php
+<?php
+
+return [
+    'env' => 'client_side',
+    'serverBundle' => 'app/server-bundle.js',
+];
 
 ```
 
