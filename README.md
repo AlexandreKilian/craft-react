@@ -25,7 +25,7 @@ In the Control Panel, go to Settings → Plugins and click the “Install” but
 
 ## Setup
 
-In the plugin settings `.env` file, add the following entries:
+In the plugin settings, add the following entries:
 
 `Environment: "client_side", "server_side" or "both"`
 
