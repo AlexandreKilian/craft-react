@@ -36,8 +36,60 @@ REACT_SERVER_BUNDLE= 'app/server-bundle.js' // the location of your server bundl
 
 
 In your template, add the following TWIG-function where you want your react application to be rendered into:
-
+```twig
     {{ react_component('MyApp', {'props': {entry: entry}}) }}
-
+```
 
 In the props, pass whatever props you want to pass to your root component.
+
+
+## Serialization
+
+In order to serialize your entries to create a store or props, the new twig function `serialize(entry, schema = 'entry', group = 'default') ` has been introduced. This allows you to create a php file to serialize your entries. Files should be located in `config/react` and should be named `[schema].php`.
+If unspecified, the schema will default to `entry.php` and the group to `default`.
+
+```php entry.php
+<?php
+# config/react/entry.php
+
+use craft\elements\Entry;
+
+return [
+    'default' => function(Entry $entry){// named after the group
+        return [
+            'id' => $entry->id,
+            'title' => $entry->title,
+            'customField' => $entry->customField,
+         ];
+    }
+];
+```
+
+To use it in twig, just pass your current entry and use the result in your store:
+
+```twig 
+{# _entry.twig #}
+
+{% set serializedBlogPost = serialize(entry,'blog', 'detail') %}
+{{ react_component('MyApp', {'props': {blogpost: serializedBlogPost}}) }}
+```
+
+This will use the file `config/react/blog.php`
+
+```php
+<?php
+# config/react/blog.php
+
+use craft\elements\Entry;
+
+return [
+    'detail' => function(Entry $entry){
+        return [
+            'id' => $entry->id,
+            'title' => $entry->title,
+            'content' => $entry->content,// custom field
+         ];
+    }
+];
+
+```

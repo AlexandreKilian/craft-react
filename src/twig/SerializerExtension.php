@@ -2,7 +2,6 @@
 
 namespace react\twig;
 use Craft;
-use craft\elements\Entry;
 
 class SerializerExtension extends \Twig_Extension
 {
@@ -15,13 +14,13 @@ class SerializerExtension extends \Twig_Extension
         );
     }
 
-    public function serialize(Entry $entry, $schema = 'entry', $group = 'default') {
+    public function serialize($data, $schema = 'entry', $group = 'default') {
         $dir = Craft::getAlias('@config/react');
         $path = $dir . "/$schema.php";
         $config = include_once($path);
 
         $f = $config[$group];
-        $result = $f($entry);
+        $result = $f($data);
 
         return $result;
     }
