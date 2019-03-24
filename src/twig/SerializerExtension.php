@@ -6,6 +6,7 @@ use Craft;
 class SerializerExtension extends \Twig_Extension
 {
     private $serializer;
+    private $cache = [];
 
     public function getFunctions()
     {
@@ -17,7 +18,11 @@ class SerializerExtension extends \Twig_Extension
     public function serialize($data, $schema = 'entry', $group = 'default') {
         $dir = Craft::getAlias('@config/react');
         $path = $dir . "/$schema.php";
-        $config = include_once($path);
+        if(!isset($this->cache[$schema])){
+            $this->cache[$schema] = include_once($path);
+        }
+
+        $config = $this->cache[$schema];
 
         $f = $config[$group];
         $result = $f($data);
